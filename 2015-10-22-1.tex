@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{minutes}
+\usepackage[letterpaper, margin=1in]{geometry}
+
+\pagestyle{plain}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+\selectlanguage{english}
+
+\begin{Minutes}{Team Meeting 4}
+\participant{\
+    Emily Shepherd, \
+    Mohit Gupta, \
+    Dan Playle, \
+    Toby Finch, \
+    Calin Pasat}
+\minutesdate{22 October 2015}
+\starttime{13:00}
+\endtime{15:00}
+\location{Zepler Level 3 Labs}
+\maketitle
+
+\topic{Machine Learning Development}
+
+Dan started the meeting by presenting the research he had done into the Machine Learning aspect of the algorithm. He presented a graph of x, y and z coordinates, and showed Waka's confusion matrix with two of the best classifiers that it had found: MultiLayer Perception and RBF Networks.
+He pointed out that both of these gave approximately the same results as each other: about 90\% accuracy at classifying peaks, troughs, noise, stair peaks and walking peaks. As the final algorithm does not need to tell the difference between noise, stair peaks and walking peaks, this equates to a 95\% effective accuracy.
+
+\topic{Embedded Machine Learning}
+Emily informed the team that she had had less success, stating that the team's original plan of using exclusively offline learning was most sensible, as she could not find many cases where it could be scaled down effectively onto a constrained system.
+
+\topic{Hardware Limitations}
+
+Mohit presented his findings about the Cortex M0 and Cortex M0+'s hardware limitations:
+\begin{itemize}
+	\item No hardware floating point support what-so-ever
+	\item Only capabile of 32bit arithmetic
+	\item No hardware divide
+	\item No clamping to prevent overflows during arithmetic - Emily said that this would not cause the developers too much trouble to mitigate.
+\end{itemize}
+
+The lack of floating point support caused some concern as both proposed classifiers, MLP and RBF Networks, require decimal arthimatic. Dan queried the feasibility of using a software floating point library.
+Mohit responded that such libraries were available to the team, however single point precision would require up to 100 cycles per calculation, and double precision requires up to 1000 cycles or more.
+Emily stated that this was unacceptably prohibitive, to which the team agreed. Dan suggested that it may be possible to develop an MLP implementation which uses scaled up decimals, such that everything becomes integers.
+Emily suggested the possibility of creating the possibility of developing some form of fixed point system, or an algorithm-aware semi-floating point implementation. Dan agreed that this would be feasible.
+
+\task{Dan}{Investigate Integer MLP}
+\task{Emily}{Investigate basic decimal implementation}
+
+\topic{Ethics Approval}
+Toby stated that he had finally managed to secure the agreement and contact details of an appropriate health and safety contact for the participants. This are Hayley Goodes (Room: 44/2029, Ext: 22226) and Nicky Baverstock (Room: 44/2003, Ext: 24588).
+As this was the last thing he was waiting for, Toby stated that the application could now be feasibly submitted - he stated that it would need to be formalised and compiled together but he believed it would be possible to submit on that day.
+
+\task{Emily and Toby}{Finalise and Submit Ethics Approval Application}
+
+\topic{Progress Seminar}
+Toby asked about the plan for the progress seminar - Emily responded that that should be discussed this meeting.
+Emily asked Dan if he knew of any form of LaTeX-style PowerPoint tools, to which he responded that he did not. Mohit suggested using LaTeX to make slides in a PDF and scrolling through them, however Emily stated that she did not believe this would look adequately professional.
+Dan asked about GUI based collaborative presentation tools, and Emily suggested Google Slides. The team were all happy with this.
+
+Emily suggested starting with an Introduction to the team section and a quick overview of the Project Brief, however she then expressed doubt as to whether or not the team introduction would be required. As the team were not able to come to a consensus on this, Emily suggested asking Dr Weddell at their next meeting.
+Dan stated he would write up a few slides on the Machine Learning section and Mohit agreed to take charge of the hardware slides. Toby suggested starting with a ``Presentation Overview'' slide and also reminded the team about the need for a slide about the Ethics Process and the planned Movement Study. Emily agreed and stated the team should make it clear how much work they had already done, as the second examiner would not be aware of any of it.
+
+Emily pointed out that this would need to be rehearsed before Monday, when the presentation was due to be done; the team agreed to meet on Sunday afternoon. 
+
+\task{Dan}{Write Machine Learning Slides}
+\task{Mohit}{Write Hardware Slides}
+\task{Toby}{Write Ethics and Study Slides}
+\task{Emily}{Write Project Brief, Plan and Progress Slides}
+\decision*{Rehearse Project on Sunday}
+
+
+\end{Minutes}
+\end{document}
